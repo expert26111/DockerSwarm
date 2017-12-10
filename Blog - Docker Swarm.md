@@ -3,8 +3,6 @@
 
 ### Written by Yoana Danarova & Manish Shrestha
 
-Group G
-
 10.12.2017
 
 
