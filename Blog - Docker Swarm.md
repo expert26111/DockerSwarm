@@ -1,6 +1,10 @@
 **Deployment**: Why Docker Swarms is the way to go
 ----------------------------------------------
 
+Yoana Danarova & Manish Shrestha
+Group G
+10.12.2017
+
  
 ### **Abstract**
 A system is bound to experience an outage, whether by its inability to handle multiple, concurrent requests or even after important updates.
