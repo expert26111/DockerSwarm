@@ -10,8 +10,11 @@ Group G
  
 ### **Abstract**
 A system is bound to experience an outage, whether by its inability to handle multiple, concurrent requests or even after important updates.
+
 Companies cannot afford to have their system down and inaccessible.
+
 Docker Swarm allows to create multiple replicas of a primary instance of a system, providing redundancy and enabling Docker Swarm failover if one or more nodes experience an outage.
+
 This implementation brings in scalability and automatic load balancing by nature, resulting in not only continuously alive system but also with increase in security and a better overall deployment approach.
  
 ### **Problem Statement**
