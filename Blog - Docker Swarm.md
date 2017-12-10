@@ -99,7 +99,7 @@ After *Command 7 and  8*, one can see on the console on which node how many of t
 
 First step is to go to your manager node or one of them and ssh into it. 
 
-`docker service create --replicas 3 --name redis --update-delay 10s redis:3.0.6` */Command 9*
+`docker service create --replicas 3 --name redis --update-delay 10s redis:3.0.6` *//Command 9*
 
 *Command 9* shows example how the rolling update policy can be configured at service deployment time.  The flag `--update-delay 10s` does this. One can use, for example 10m30s, time can be specified with seconds, minutes or hours. 
 
