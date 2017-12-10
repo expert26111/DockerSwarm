@@ -52,7 +52,7 @@ The command line tools for creating docker swarm cluster are easy to use.
 
 The following are the steps to create docker swarm and deploy services onto it.
 
-**1. ** `docker swarm init --advertise-addr ipaddress`  *//Command 1*
+**1.** `docker swarm init --advertise-addr ipaddress`  *//Command 1*
 
 With this command executed there is a node created. A node could be a DigitalOcean droplet, virtual machine, etc.  Now what got created is a Manager node.
 
