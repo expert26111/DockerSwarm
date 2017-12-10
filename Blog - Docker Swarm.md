@@ -41,14 +41,18 @@ The following are the complete list of features that comes with Docker Swarm.
 - Secure by default
 - Rolling updates
 
+
+----------
+
+
 ### **Technical Implementation**
 If one want to be more orientated can always execute `docker swarm --help`.
 
 The command line tools for creating docker swarm cluster are easy to use.
 
-For example:
+The following are the steps to create docker swarm and deploy services onto it.
 
-`docker swarm init --advertise-addr ipaddress`  *//Command 1*
+**1. ** `docker swarm init --advertise-addr ipaddress`  *//Command 1*
 
 With this command executed there is a node created. A node could be a DigitalOcean droplet, virtual machine, etc.  Now what got created is a Manager node.
 
@@ -56,13 +60,13 @@ A Manager node, as every manager has someone working for them. So next, we creat
 
 After the execution of the Command 1. One is presented with a token(a fairly long string of characters). In order to add worker nodes to your manager keep that token. 
 
-`docker info`  *//Command 2*
+**2.** `docker info`  *//Command 2*
 
 After executing *Command 2* one sees: `Swarm active`
 
 So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Lets join another node to the swarm.
 
-`docker swarm join  --token “token goes here” ipadderess` *//Command 3*
+**3.** `docker swarm join  --token “token goes here” ipadderess` *//Command 3*
 
 Because to spin a container is only possible from a manager. So  in order to that:
 
@@ -70,21 +74,23 @@ Because to spin a container is only possible from a manager. So  in order to tha
 2. ssh into it.  (If you do not know how and what this means google on the internet). 
 3. `docker node ls ` *//Command 4* (This command shows all nodes, workers and manager and their status.)
 
-`docker service create -p 80:80 --name webserver nginx`  *//Command 5*
+**4.** `docker service create -p 80:80 --name webserver nginx`  *//Command 5*
 
 Command 5 is where there is service created. If one already have a minimum knowledge of docker definitely appreciates how easy it is to create a service. And what is a service?  It is a container, task which is spun and deployed.
  
-`docker service ls` *//Command 6*
+**5.** `docker service ls` *//Command 6*
 
 > Execute *Command 6* from the manager node(because worker nodes do not know anything about services).
  
 After *Command 5* and *Command 6* on the console could be seen that the service is running as one replicas, the image `nginx`, how one named the service. Here, replicas is the number of containers for this service. In order to scale and run the service with multiple replicas use:
 
-`docker service scale webserver=5`      *//Command 7*
+**6.** `docker service scale webserver=5`      *//Command 7*
 
 `docker service ps webserver`      *//Command 8*
 
-After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. One can ask: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system. How to update a service with the docker swarms?  Okay, let’s do that.
+After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. One can ask: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.
+
+**7.** How to update a service with the docker swarms?  Okay, let’s do that.
 
 First step is to go to your manager node or one of them and ssh into it. 
 
@@ -92,20 +98,20 @@ First step is to go to your manager node or one of them and ssh into it.
 
 *Command 9* shows example how the rolling update policy can be configured at service deployment time.  The flag `--update-delay 10s` does this. One can use, for example 10m30s, time can be specified with seconds, minutes or hours. 
 
-Updating a container image, is as well one line command. The swarm manager applies the update to all nodes. 
+**8.** Updating a container image, is as well one line command. The swarm manager applies the update to all nodes. 
 
 `docker service update --image redis:3.0.7 redis`  *//Command 10*
 
 After *Command 10* what docker swarm does to update your task is:
 stopping first task, schedule update for the stopped task, start the container and like this for all tasks in all nodes.
 
-`docker service inspect --pretty redis` *//Command 11*
+**9.** `docker service inspect --pretty redis` *//Command 11*
 
 After *Command 11* the console prints for us the number of replicas the service has, the image and its tag, the update strategy one configured on the update of the service. If, for example, the update of a service(*Command 10*) failed, after *Command 11* in this case the state of a service will be marked as `Paused`. One can manually restart a service like :
 
 `docker service update <SERVICE-ID>` *//Command 12*
 
-In order to escape *Command 12* and manually to restart a service one has to go back and configure her/his service again. To watch you service while updating:
+**10.** In order to escape *Command 12* and manually to restart a service one has to go back and configure her/his service again. To watch you service while updating:
 
 `docker service ps redis` *//Command 13*
 
@@ -113,12 +119,18 @@ After *Command 13* one can see that some containers run image with different tag
  
 What about one when on of the worker node crashes? Then docker swarm takes care of  moving the number of services your crashed node was executing to working instances. What about multi-host networking? No problem one can specify overlay network for her/his services on creation or update. So one not only can have the default ingress network but create her/his own. Okay, what about security, different nodes have different ip address and my server can be on different node than my database? How docker-swarms handle the security connection between them? So each node in the swarm enforces TLS mutual authentication and encryption to secure communications between nodes. 
 
+
+----------
+
+
 ### Conclusion
  
 So up until now, a conclusion can be made that docker-swarms is easy to manage with docker CLI, no need of additional software to create or manage a swarm. Ingress default network takes care of the load balancing. The option for rolling updates helps one update tasks images on all nodes where service is running.  The connection between different nodes is secure. Scaling is another option where docker-swarms shines, easy to implement with docker cli.
 
 So one can see that using docker-swarms is easy to use and can helps not only with deployment but managing all problems associated with it in efficient manner. There are many options for customizing not mentioned in this blog but docker-swarms is good decision for hosting your system.
  
+
+
 ### External links:
 https://docs.docker.com/engine/swarm/#feature-highlights
 https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode
