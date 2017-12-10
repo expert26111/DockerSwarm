@@ -1,7 +1,7 @@
 **Deployment**: Why Docker Swarms is the way to go
 ----------------------------------------------
 
-##Written by Yoana Danarova & Manish Shrestha
+## Written by Yoana Danarova & Manish Shrestha
 
 Group G
 
