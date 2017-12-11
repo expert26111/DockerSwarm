@@ -64,7 +64,7 @@ So one can see that using docker-swarms is easy to use and can helps not only wi
 
 
 
-### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/1000px-Octicons-terminal.svg.png" width="18" height="18" /> Technical Implementation
+### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/1000px-Octicons-terminal.svg.png" width="20" height="20" /> Technical Implementation
 
 If one want to be more orientated, can always execute `docker swarm --help`.
 
