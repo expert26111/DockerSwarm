@@ -8,7 +8,9 @@
 
 ----------
 
-![enter image description here](http://everett-toews.github.io/effective-docker-swarm/slides/img/swarmnado.gif)
+<p align="center">
+  <img src="http://everett-toews.github.io/effective-docker-swarm/slides/img/swarmnado.gif" alt="Docker Swarm"/>
+</p>
 
  
 ### **Abstract**
@@ -64,6 +66,8 @@ So one can see that using docker-swarms is easy to use and can helps not only wi
 If one want to be more orientated, can always execute `docker swarm --help`.
 
 The command line tools for creating docker swarm cluster are easy to use.
+
+![enter image description here](https://lh3.googleusercontent.com/wqWmz3r1PMjXpy1GM4ObYf40kNv4H2xdjdSXH5__Zo4rWnDFMTtE_eAxh0ZBmjRox3u0blUiFZN2aQ=s0 "swarm.png")
 
 The following are the steps to create docker swarm and deploy services onto it.
 
