@@ -48,7 +48,12 @@ The following are the complete list of features that comes with Docker Swarm.
 - Secure by default
 - Rolling updates
 
+### Conclusion
+ 
+So up until now, a conclusion can be made that docker-swarms is easy to manage with docker CLI, no need of additional software to create or manage a swarm. Ingress default network takes care of the load balancing. The option for rolling updates helps one update tasks images on all nodes where service is running.  The connection between different nodes is secure. Scaling is another option where docker-swarms shines, easy to implement with docker cli.
 
+So one can see that using docker-swarms is easy to use and can helps not only with deployment but managing all problems associated with it in efficient manner. There are many options for customizing not mentioned in this blog but docker-swarms is good decision for hosting your system.
+ 
 ----------
 
 
@@ -128,14 +133,6 @@ What about one when on of the worker node crashes? Then docker swarm takes care 
 
 
 ----------
-
-
-### Conclusion
- 
-So up until now, a conclusion can be made that docker-swarms is easy to manage with docker CLI, no need of additional software to create or manage a swarm. Ingress default network takes care of the load balancing. The option for rolling updates helps one update tasks images on all nodes where service is running.  The connection between different nodes is secure. Scaling is another option where docker-swarms shines, easy to implement with docker cli.
-
-So one can see that using docker-swarms is easy to use and can helps not only with deployment but managing all problems associated with it in efficient manner. There are many options for customizing not mentioned in this blog but docker-swarms is good decision for hosting your system.
- 
 
 
 ### External links:
