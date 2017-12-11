@@ -8,6 +8,7 @@
 
 ----------
 
+![enter image description here](http://everett-toews.github.io/effective-docker-swarm/slides/img/swarmnado.gif)
 
  
 ### **Abstract**
@@ -32,6 +33,8 @@ To battle that very problem, Docker Swarms was introduced on mid 2016 with Docke
 Docker Swarm enables to orchestrate cluster of containers in order to have stable working hosted solution. It assigns containers to underlying nodes and optimizes resources by automatically scheduling container workloads to run on the most appropriate host. This Docker orchestration balances containerized system workloads, ensuring containers are launched on the host machine with adequate resources, while maintaining necessary performance levels. Since there are multiple instances of the container running concurrently, in an unfortunate event of some of them failing, it doesn’t result in the system being down.
  
 With the use of Docker Swarm, manager nodes and worker nodes can be spawned and assigned with one or more tasks with the number of replicas of the said tasks. The manger nodes automatically spreads and balances the tasks among all of its workers and itself, resulting in an efficient system, making most use of its available resources.
+
+![enter image description here](https://blog.jayway.com/wp-content/uploads/2016/06/swarm-architecture.png)
 
 Moving forward, Docker Swarm comes with great security out of the box. When a node joins the swarm, it uses a token that not only verifies itself but also verifies it is joining the swarm you think it is. From then on, all communication between nodes take place with mutual TLS authentication.
 
@@ -58,7 +61,7 @@ So one can see that using docker-swarms is easy to use and can helps not only wi
 
 
 ### **Technical Implementation**
-If one want to be more orientated can always execute `docker swarm --help`.
+If one want to be more orientated, can always execute `docker swarm --help`.
 
 The command line tools for creating docker swarm cluster are easy to use.
 
