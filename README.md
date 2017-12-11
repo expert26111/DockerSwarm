@@ -1,9 +1,10 @@
 **Deployment**: Why Docker Swarms is the way to go
 ----------------------------------------------
 
-### <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Simpleicons_Business_pencil.svg" width="18" height="18" /> Written by Yoana Danarova & Manish Shrestha
+### <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Simpleicons_Business_pencil.svg" width="18" height="18" /> Written by Yoana Dandarova & Manish Shrestha
 
-10.12.2017
+ <img src="http://simpleicon.com/wp-content/uploads/Calendar-1.png" width="18" height="18" /> 10.12.2017
+ 
 
 
 ----------
@@ -62,7 +63,9 @@ So one can see that using docker-swarms is easy to use and can helps not only wi
 ----------
 
 
-### **Technical Implementation**
+
+### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/1000px-Octicons-terminal.svg.png" width="18" height="18" /> Technical Implementation
+
 If one want to be more orientated, can always execute `docker swarm --help`.
 
 The command line tools for creating docker swarm cluster are easy to use.
