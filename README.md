@@ -1,7 +1,7 @@
 **Deployment**: Why Docker Swarms is the way to go
 ----------------------------------------------
 
-#### <i class="icon-pencil"></i> Written by Yoana Danarova & Manish Shrestha
+### <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Simpleicons_Business_pencil.svg" width="18" height="18" /> Written by Yoana Danarova & Manish Shrestha
 
 10.12.2017
 
