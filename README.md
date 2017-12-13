@@ -145,7 +145,7 @@ What about one when on of the worker node crashes? Then docker swarm takes care 
 ----------
 
 
-### External links:
+### Sources:
 <sup>1</sup>  https://docs.docker.com/engine/swarm/#feature-highlights
 
 <sup>2</sup>  https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode
