@@ -86,7 +86,7 @@ After the execution of the Command 1. One is presented with a token(a fairly lon
 
 After executing *Command 2* one sees: `Swarm active`
 
-So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Let's join another node to the swarm.<sup>4</sup>
+So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Let's join another node to the swarm.<sup>[*Source 4*](https://www.toptal.com/devops/software-deployment-docker-swarm-tutorial)</sup>
 
 **3.** `docker swarm join  --token “token goes here” ipaddress` *//Command 3*
 
@@ -146,10 +146,10 @@ What about when one  of the worker node crashes? Then docker swarm takes care of
 
 
 ### Sources:
-<sup>1</sup>  https://docs.docker.com/engine/swarm/#feature-highlights
+<sup>1</sup>  [Swarm Feature Highlights - Docker Documentation. Dated: *unstated*](https://docs.docker.com/engine/swarm/#feature-highlights)
 
-<sup>2</sup>  https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode
+<sup>2</sup>  [Ingress Networking with Docker Swarm - Stack Overflow. Dated: Feb 28, 2017](https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode)
 
-<sup>3</sup>  https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/
+<sup>3</sup>  [Applying rolling updates - Docker Documentation. Dated: *unstated*](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update)
 
-<sup>4</sup>  https://www.toptal.com/devops/software-deployment-docker-swarm-tutorial
+<sup>4</sup>  [Docker Swarm Tutorial - Toptal.com. Dated: *unstated*](https://www.toptal.com/devops/software-deployment-docker-swarm-tutorial)
