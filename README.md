@@ -28,14 +28,14 @@ Nowadays, every system, no matter how big it is, sooner or later reaches the poi
  
  
 ### **Docker Swarms**
-To battle that very problem, Docker Swarms was introduced on mid 2016 with Docker version `1.12.0`. Yes, there are other alternatives like Kubernetes and Marathon on Apache Mesos but Docker Swarms has relatively easier implementation and if already working with containers, it requires barely any changes in the already set up configuration file, if any.
+To battle that very problem, Docker Swarms was introduced on mid-2016 with Docker version `1.12.0`. Yes, there are other alternatives like Kubernetes and Marathon on Apache Mesos but Docker Swarms has relatively easier implementation and if already working with containers, it requires barely any changes in the already set up configuration file, if any.
 
 
 *Docker Swarm gives elegant solution to the question “How should I deploy my system?”.*
 
 Docker Swarm enables to orchestrate cluster of containers in order to have stable working hosted solution. It assigns containers to underlying nodes and optimizes resources by automatically scheduling container workloads to run on the most appropriate host. This Docker orchestration balances containerized system workloads, ensuring containers are launched on the host machine with adequate resources, while maintaining necessary performance levels. Since there are multiple instances of the container running concurrently, in an unfortunate event of some of them failing, it doesn’t result in the system being down.
  
-With the use of Docker Swarm, manager nodes and worker nodes can be spawned and assigned with one or more tasks with the number of replicas of the said tasks. The manger nodes automatically spreads and balances the tasks among all of its workers and itself, resulting in an efficient system, making most use of its available resources.
+With the use of Docker Swarm, manager nodes and worker nodes can be spawned and assigned with one or more tasks with the number of replicas of the said tasks. The manager nodes automatically spreads and balances the tasks among all of its workers and itself, resulting in an efficient system, making most use of its available resources.
 
 ![enter image description here](https://blog.jayway.com/wp-content/uploads/2016/06/swarm-architecture.png)
 
@@ -58,7 +58,7 @@ The following are the complete list of features that comes with Docker Swarm.<su
  
 So up until now, a conclusion can be made that docker-swarms is easy to manage with docker CLI, no need of additional software to create or manage a swarm. Ingress default network takes care of the load balancing. The option for rolling updates helps one update tasks images on all nodes where service is running.  The connection between different nodes is secure. Scaling is another option where docker-swarms shines, easy to implement with docker cli.
 
-So one can see that using docker-swarms is easy to use and can helps not only with deployment but managing all problems associated with it in efficient manner. There are many options for customizing not mentioned in this blog but docker-swarms is good decision for hosting your system.
+So one can see that using docker-swarms is easy to use and can helps not only with deployment but managing all problems associated with it in an efficient manner. There are many options for customizing not mentioned in this blog but docker-swarms is good decision for hosting your system.
  
 ----------
 
@@ -78,7 +78,7 @@ The following are the steps to create docker swarm and deploy services onto it.<
 
 With this command executed there is a node created. A node could be a DigitalOcean droplet, virtual machine, etc.  Now what got created is a Manager node.
 
-A Manager node, as every manager has someone working for them. So next, we create the worker nodes that will get managed by the manage node. 
+A Manager node, as every manager has someone working for them. So next, we create the worker nodes that will get managed by the manager node. 
 
 After the execution of the Command 1. One is presented with a token(a fairly long string of characters). In order to add worker nodes to your manager keep that token. 
 
@@ -86,9 +86,9 @@ After the execution of the Command 1. One is presented with a token(a fairly lon
 
 After executing *Command 2* one sees: `Swarm active`
 
-So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Lets join another node to the swarm.<sup>4</sup>
+So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Let's join another node to the swarm.<sup>4</sup>
 
-**3.** `docker swarm join  --token “token goes here” ipadderess` *//Command 3*
+**3.** `docker swarm join  --token “token goes here” ipaddress` *//Command 3*
 
 Because to spin a container is only possible from a manager. So  in order to that:
 
@@ -139,7 +139,7 @@ After *Command 11* the console prints for us the number of replicas the service 
 
 After *Command 13* one can see that some containers run image with different tag than others. This happens after *Command 10*. After all rolling updates are done one can see that all containers run the last updated version for her/his image.
  
-What about one when on of the worker node crashes? Then docker swarm takes care of  moving the number of services your crashed node was executing to working instances. What about multi-host networking? No problem one can specify overlay network for her/his services on creation or update. So one not only can have the default ingress network but create her/his own. Okay, what about security, different nodes have different ip address and my server can be on different node than my database? How docker-swarms handle the security connection between them? So each node in the swarm enforces TLS mutual authentication and encryption to secure communications between nodes. 
+What about when one  of the worker node crashes? Then docker swarm takes care of  moving the number of services your crashed node was executing to working instances. What about multi-host networking? No problem one can specify overlay network for her/his services on creation or update. So one not only can have the default ingress network but create her/his own. Okay, what about security, different nodes have different ip address and my server can be on different node than my database? How docker-swarms handle the secure   connection between them? So each node in the swarm enforces TLS mutual authentication and encryption to secure communications between nodes. 
 
 
 ----------
