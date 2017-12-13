@@ -41,7 +41,7 @@ With the use of Docker Swarm, manager nodes and worker nodes can be spawned and 
 
 Moving forward, Docker Swarm comes with great security out of the box. When a node joins the swarm, it uses a token that not only verifies itself but also verifies it is joining the swarm you think it is. From then on, all communication between nodes take place with mutual TLS authentication.
 
-The following are the complete list of features that comes with Docker Swarm.
+The following are the complete list of features that comes with Docker Swarm.<sup>1</sup>
 
 - Cluster management integrated with Docker Engine
 - Decentralized design
@@ -72,7 +72,7 @@ The command line tools for creating docker swarm cluster are easy to use.
 
 ![enter image description here](https://lh3.googleusercontent.com/wqWmz3r1PMjXpy1GM4ObYf40kNv4H2xdjdSXH5__Zo4rWnDFMTtE_eAxh0ZBmjRox3u0blUiFZN2aQ=s0 "swarm.png")
 
-The following are the steps to create docker swarm and deploy services onto it.
+The following are the steps to create docker swarm and deploy services onto it.<sup>4</sup>
 
 **1.** `docker swarm init --advertise-addr ipaddress`  *//Command 1*
 
@@ -86,7 +86,7 @@ After the execution of the Command 1. One is presented with a token(a fairly lon
 
 After executing *Command 2* one sees: `Swarm active`
 
-So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Lets join another node to the swarm.
+So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Lets join another node to the swarm.<sup>4</sup>
 
 **3.** `docker swarm join  --token “token goes here” ipadderess` *//Command 3*
 
@@ -110,9 +110,9 @@ After *Command 5* and *Command 6* on the console could be seen that the service 
 
 `docker service ps webserver`      *//Command 8*
 
-After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. One can ask: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.
+After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. One can ask: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.<sup>2</sup>
 
-**7.** How to update a service with the docker swarms?  Okay, let’s do that.
+**7.** How to update a service with the docker swarms?  Okay, let’s do that. <sup>3</sup>
 
 First step is to go to your manager node or one of them and ssh into it. 
 
@@ -146,7 +146,10 @@ What about one when on of the worker node crashes? Then docker swarm takes care 
 
 
 ### External links:
-https://docs.docker.com/engine/swarm/#feature-highlights
-https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode
-https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/
-https://www.toptal.com/devops/software-deployment-docker-swarm-tutorial
+<sup>1</sup>  https://docs.docker.com/engine/swarm/#feature-highlights
+
+<sup>2</sup>  https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode
+
+<sup>3</sup>  https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/
+
+<sup>4</sup>  https://www.toptal.com/devops/software-deployment-docker-swarm-tutorial
