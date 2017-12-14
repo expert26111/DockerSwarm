@@ -9,6 +9,9 @@
 
 ----------
 
+> //Need to improve:
+> 1. Provide more examples from personal project. How it helped us to improve.
+
 <p align="center">
   <img src="http://everett-toews.github.io/effective-docker-swarm/slides/img/swarmnado.gif" alt="Docker Swarm"/>
 </p>
