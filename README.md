@@ -91,7 +91,7 @@ So one can see that using docker-swarms is easy to use and can helps not only wi
 
 ### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/1000px-Octicons-terminal.svg.png" width="20" height="20" /> Technical Implementation
 
-If one want to be more orientated, can always execute `docker swarm --help`.
+If one want to be more orientated and get general help, can always start with the execution of `docker swarm --help`.
 
 The command line tools for creating docker swarm cluster are easy to use.
 
@@ -101,11 +101,11 @@ The following are the steps to create docker swarm and deploy services onto it.<
 
 **1.** `docker swarm init --advertise-addr ipaddress`  *//Command 1*
 
-With this command executed there is a node created. A node could be a DigitalOcean droplet, virtual machine, etc.  Now what got created is a Manager node.
+With this command executed there is a node created. A node could be a DigitalOcean droplet, Virtual machine, etc.  Now what got created is a Manager node.
 
 A Manager node, as every manager has someone working for them. So next, we create the worker nodes that will get managed by the manager node. 
 
-After the execution of the Command 1. One is presented with a token(a fairly long string of characters). In order to add worker nodes to your manager keep that token. 
+After the execution of Command 1. One is presented with a token(a fairly long string of characters). In order to add worker nodes to your manager keep that token. 
 
 **2.** `docker info`  *//Command 2*
 
@@ -115,7 +115,9 @@ So it was so easy to create your manager, the one that will orchestrate your doc
 
 **3.** `docker swarm join  --token “token goes here” ipaddress` *//Command 3*
 
-Because to spin a container is only possible from a manager. So  in order to that:
+After Command 3 one have joined a worker node to the cluster.
+
+Because to spin a container is only possible from a manager. So in order to do that:
 
 1. Go back to the manager node.
 2. ssh into it.  (If you do not know how and what this means google on the internet). 
@@ -123,7 +125,7 @@ Because to spin a container is only possible from a manager. So  in order to tha
 
 **4.** `docker service create -p 80:80 --name webserver nginx`  *//Command 5*
 
-Command 5 is where there is service created. If one already have a minimum knowledge of docker definitely appreciates how easy it is to create a service. And what is a service?  It is a container, task which is spun and deployed.
+Command 5 is where there is a service created. If one already have a minimum knowledge of docker definitely appreciates how easy it is to create a service. And what is a service?  It is a container, task which is spun and deployed. 
  
 **5.** `docker service ls` *//Command 6*
 
@@ -135,7 +137,7 @@ After *Command 5* and *Command 6* on the console could be seen that the service 
 
 `docker service ps webserver`      *//Command 8*
 
-After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. One can ask: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.<sup>[*Source 2*](https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode)</sup>
+After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. Here can be asked: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.<sup>[*Source 2*](https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode)</sup>
 
 **7.** How to update a service with the docker swarms? Okay, let’s do that. <sup>[*Source 3*](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)</sup>
 
