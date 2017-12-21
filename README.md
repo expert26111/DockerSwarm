@@ -170,8 +170,6 @@ docker-compose down<br>
 docker-compose restart<br>
 After the above lines sometimes we had to remove the latest image of certain container in order new one to be pulled, even though we specified the tag latest for it.  We stopped the system in order to update it, so some time had to pass when the system was not up ready to accept user requests. Docker-swarms does not stop your system that is up and running. It updates it and everything is still accessible for users. It helped us being able not worry about load balancing as well. When we started only with containers, occasionally system went down and it was because of the load. The swarms gave us easy command line tools to use, so it was no effort to make any updates on our swarm.
 
-### Conclusion
-So one can see that using docker-swarms is easy to use and can helps not only with deployment but managing all problems associated with it in efficient manner. There are many options for customizing not mentioned in this blog but docker-swarms is good decision for hosting your system.
 
 ----------
 
