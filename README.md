@@ -24,6 +24,7 @@
 7. [Conclusion](https://github.com/expert26111/DockerSwarm#7-conclusion)
 8. [Technical Implementation](https://github.com/expert26111/DockerSwarm#-8-technical-implementation)
 9. [Sources](https://github.com/expert26111/DockerSwarm#9-sources)
+ -------------------------------------
  
 ### **1. Abstract**
 A system is bound to experience an outage, whether by its inability to handle multiple, concurrent requests or even after important updates.
