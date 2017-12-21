@@ -166,6 +166,12 @@ After *Command 13* one can see that some containers run image with different tag
  
 What about when one  of the worker node crashes? Then docker swarm takes care of  moving the number of services your crashed node was executing to working instances. What about multi-host networking? No problem one can specify overlay network for her/his services on creation or update. So one not only can have the default ingress network but create her/his own. Okay, what about security, different nodes have different ip address and my server can be on different node than my database? How docker-swarms handle the secure connection between them? So each node in the swarm enforces TLS mutual authentication and encryption to secure communications between nodes. 
 
+### How Docker Swarms Helped us
+Whenever we worked with docker containers, on every update of the system or crash we had to manually type the following commands:
+docker-compose down
+docker-compose restart
+After the above lines sometimes we had to remove the latest image of certain container in order new one to be pulled, even though we specified the tag latest for it.  We stopped the system in order to update it, so some time had to pass when the system was not up ready to accept user requests. Docker-swarms does not stop your system that is up and running. It updates it and everything is still accessible for users. It helped us being able not worry about load balancing as well. When we started only with containers, occasionally system went down and it was because of the load. The swarms gave us easy command line tools to use, so it was no effort to make any updates on our swarm.
+
 
 ----------
 
