@@ -41,7 +41,7 @@ With the use of Docker Swarm, manager nodes and worker nodes can be spawned and 
 
 Moving forward, Docker Swarm comes with great security out of the box. When a node joins the swarm, it uses a token that not only verifies itself but also verifies it is joining the swarm you think it is. From then on, all communication between nodes take place with mutual TLS authentication.
 
-The following are the complete list of features that comes with Docker Swarm.<sup>[*[1]*](#source1)</sup>
+The following are the complete list of features that comes with Docker Swarm.<sup>[**[1]**](#source1)</sup>
 
 - Cluster management integrated with Docker Engine
 - Decentralized design
@@ -54,7 +54,40 @@ The following are the complete list of features that comes with Docker Swarm.<su
 - Secure by default
 - Rolling updates
 
-### Previous Works <sup>*[*[5]*](#source5)*</sup>
+### How Docker Swarms Helped us
+
+Whenever we worked with docker containers, on every update of the system or crash we had to manually run the following commands (depending upon if we wanted to tweak the system):
+
+```
+docker-compose down
+docker-compose up -d
+```
+
+OR
+
+```
+docker-compose restart
+```
+
+After the above commands, sometimes we had to remove the cached latest image of certain container, in order for new one to be pulled, even though we specified the tag `:latest` for it.  We also had to stop the system in order to update it. During this period, the user requests were not accepted by the system.
+
+Docker-swarms does not stop your system that is up and running. It updates the system in segments. As we have already discussed, docker swarms replicates the service and distributes it between its nodes. So, it runs the "old, not updated" system in a few of the nodes while simultaneously updating on the other nodes. Once that is completed, the updated system becomes active and the "old" system gets updated. This way, everything is still accessible for users.
+
+It proved itself useful with load balancing as well. When we started only with containers, occasionally system went down and it was because of the load. When that happened after swarms was implemented, only a few "replicas" would be down and the other "replicas" would still be active and working. 
+
+The following screenshot from the simulator's chart, accessed via `http://138.68.91.198/chart.svg`,  explains this better. 
+>Note: This is before docker swarms was implemented.
+
+![enter image description here](https://lh3.googleusercontent.com/YQPp9qMhEiG3nUhpKWqYG6Rs00sVS85rpnlN-jed2B7m-sPWB5a8BteQSBlQKpljzM3Cgz5pEv-uzQ=s350 "ourlatest.png")
+
+The blue line shows the increment of post's `hannest_id` ingested by our system over-time. As shown, there's a thin, vertical line in the middle. This is exactly the scenario when the system was down due to it crashing during the middle of the night, when developers were not actively monitoring it. The next morning, the system was manually restarted and docker-swarms was implemented, later that day. The same can be seen from Kibana's dashboard below.
+![enter image description here](https://lh3.googleusercontent.com/s7fhE-AfWSkMOBuQVjSihjzmG6uVtOICNfjpwHtSQEB1a_6WShcIFvjKbnlr9vwdIKF0GiOsDaL1Kg=s0 "kibana.png")
+
+The beginning of the graph is empty as the system was down due to overload.
+
+
+
+### Previous Works<sup>*[*[5]*](#source5)*</sup>
 As stated earlier, there are alternatives to implementation of container orchestration. Kubernetes and Marathon on Apache Mesos are the most actively used alongside Docker Swarms.
 
 **Kubernetes**
@@ -93,7 +126,7 @@ The command line tools for creating docker swarm cluster are easy to use.
 
 ![enter image description here](https://lh3.googleusercontent.com/wqWmz3r1PMjXpy1GM4ObYf40kNv4H2xdjdSXH5__Zo4rWnDFMTtE_eAxh0ZBmjRox3u0blUiFZN2aQ=s0 "swarm.png")
 
-The following are the steps to create docker swarm and deploy services onto it.<sup>[*[4]*](#source4)</sup>
+The following are the steps to create docker swarm and deploy services onto it.<sup>[**[4]**](#source4)</sup>
 
 **1.** `docker swarm init --advertise-addr ipaddress`  *//Command 1*
 
@@ -107,7 +140,7 @@ After the execution of Command 1. One is presented with a token(a fairly long st
 
 After executing *Command 2* one sees: `Swarm active`
 
-So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Let's join another node to the swarm.<sup>[*[4]*](#source4)</sup>
+So it was so easy to create your manager, the one that will orchestrate your docker containers(also known as tasks).  Let's join another node to the swarm.<sup>[**[4]**](#source4)</sup>
 
 **3.** `docker swarm join  --token “token goes here” ipaddress` *//Command 3*
 
@@ -133,9 +166,9 @@ After *Command 5* and *Command 6* on the console could be seen that the service 
 
 `docker service ps webserver`      *//Command 8*
 
-After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. Here can be asked: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.<sup>[*[2]*](#source2)</sup>
+After *Command 7 and  8*, one can see on the console on which node how many of the tasks/containers run. Here is where the magic starts to happen in favoring one’s hosted system. If a service goes down, it got restarted automatically on the same node or on different if the node no longer available. Here can be asked: "Okay I created my service and it got spun on multiple nodes, which IP address I provide to my users?" The answer is: It does not matter. The ingress network, on which by default the services got spun, takes care of routing the request to an active container and it does not matter on which host/IP address it is. With this in mind ingress network takes care of the distributing the load appropriately among workers/managers running the same service. Yes ingress does round robin by default for one’s system.<sup>[**[2]**](#source2)</sup>
 
-**7.** How to update a service with the docker swarms? Okay, let’s do that. <sup>[*[3]*](#source3)</sup>
+**7.** How to update a service with the docker swarms? Okay, let’s do that. <sup>[**[3]**](#source3)</sup>
 
 First step is to go to your manager node or one of them and ssh into it. 
 
@@ -154,7 +187,7 @@ stopping first task, schedule update for the stopped task, start the container a
 
 After *Command 11* the console prints for us the number of replicas the service has, the image and its tag, the update strategy one configured on the update of the service. If, for example, the update of a service(*Command 10*) failed, after *Command 11* in this case the state of a service will be marked as `Paused`. One can manually restart a service like :
 
-`docker service update <SERVICE-ID>` *//Command 12* <sup>[*[3]*](#source3)</sup>
+`docker service update <SERVICE-ID>` *//Command 12* <sup>[**[3]**](#source3)</sup>
 
 **10.** In order to escape *Command 12* and manually to restart a service one has to go back and configure her/his service again. To watch you service while updating:
 
@@ -162,17 +195,7 @@ After *Command 11* the console prints for us the number of replicas the service 
 
 After *Command 13* one can see that some containers run image with different tag than others. This happens after *Command 10*. After all rolling updates are done one can see that all containers run the last updated version for her/his image.
  
-What about when one  of the worker node crashes? Then docker swarm takes care of  moving the number of services your crashed node was executing to working instances. What about multi-host networking? No problem one can specify overlay network for her/his services on creation or update. So one not only can have the default ingress network but create her/his own. Okay, what about security, different nodes have different ip address and my server can be on different node than my database? How docker-swarms handle the secure connection between them? So each node in the swarm enforces TLS mutual authentication and encryption to secure communications between nodes.<sup>[*[1]*](#source1)</sup> 
-
-### How Docker Swarms Helped us
-
-Whenever we worked with docker containers, on every update of the system or crash we had to manually type the following commands:<br>
-
-`docker-compose down`<br>
-
-`docker-compose restart`<br>
-
-After the above lines sometimes we had to remove the latest image of certain container in order new one to be pulled, even though we specified the tag latest for it.  We stopped the system in order to update it, so some time had to pass when the system was not up ready to accept user requests. Docker-swarms does not stop your system that is up and running. It updates it and everything is still accessible for users. It helped us being able not worry about load balancing as well. When we started only with containers, occasionally system went down and it was because of the load. The swarms gave us easy command line tools to use, so it was no effort to make any updates on our swarm.
+What about when one  of the worker node crashes? Then docker swarm takes care of  moving the number of services your crashed node was executing to working instances. What about multi-host networking? No problem one can specify overlay network for her/his services on creation or update. So one not only can have the default ingress network but create her/his own. Okay, what about security, different nodes have different ip address and my server can be on different node than my database? How docker-swarms handle the secure connection between them? So each node in the swarm enforces TLS mutual authentication and encryption to secure communications between nodes.<sup>[**[1]**](#source1)</sup> 
 
 
 ----------
