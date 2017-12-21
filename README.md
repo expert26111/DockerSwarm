@@ -158,7 +158,7 @@ stopping first task, schedule update for the stopped task, start the container a
 
 After *Command 11* the console prints for us the number of replicas the service has, the image and its tag, the update strategy one configured on the update of the service. If, for example, the update of a service(*Command 10*) failed, after *Command 11* in this case the state of a service will be marked as `Paused`. One can manually restart a service like :
 
-`docker service update <SERVICE-ID>` *//Command 12*[*Source 4*]
+`docker service update <SERVICE-ID>` *//Command 12* <sup>[*Source 4*]
 
 **10.** In order to escape *Command 12* and manually to restart a service one has to go back and configure her/his service again. To watch you service while updating:
 
