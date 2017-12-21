@@ -13,10 +13,6 @@
   <img src="http://everett-toews.github.io/effective-docker-swarm/slides/img/swarmnado.gif" alt="Docker Swarm"/>
 </p>
 
-
-//Need to improve:
-
-Provide more examples from personal project. How it helped us to improve.
  
 ### **Abstract**
 A system is bound to experience an outage, whether by its inability to handle multiple, concurrent requests or even after important updates.
