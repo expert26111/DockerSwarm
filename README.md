@@ -15,15 +15,15 @@
 
 ## Table of Contents
 
-1. [Abstract](https://github.com/expert26111/DockerSwarm#abstract)
-2. [Problem Statement](https://github.com/expert26111/DockerSwarm#problem-statement)
-3. [Docker Swarms](https://github.com/expert26111/DockerSwarm#docker-swarms)
-4. [How Docker Swarms helped us](https://github.com/expert26111/DockerSwarm#how-docker-swarms-helped-us)
-5. [Previous Works](https://github.com/expert26111/DockerSwarm#previous-works5)
-6. [Future Works](https://github.com/expert26111/DockerSwarm#future-works)
-7. [Conclusion](https://github.com/expert26111/DockerSwarm#conclusion)
-8. [Technical Implementation](https://github.com/expert26111/DockerSwarm#-technical-implementation)
-9. [Sources](https://github.com/expert26111/DockerSwarm#sources)
+1. [Abstract](https://github.com/expert26111/DockerSwarm#1-abstract)
+2. [Problem Statement](https://github.com/expert26111/DockerSwarm#2-problem-statement)
+3. [Docker Swarms](https://github.com/expert26111/DockerSwarm#3-docker-swarms)
+4. [How Docker Swarms helped us](https://github.com/expert26111/DockerSwarm#4-how-docker-swarms-helped-us)
+5. [Previous Works](https://github.com/expert26111/DockerSwarm#5-previous-works5)
+6. [Future Works](https://github.com/expert26111/DockerSwarm#6-future-works)
+7. [Conclusion](https://github.com/expert26111/DockerSwarm#7-conclusion)
+8. [Technical Implementation](https://github.com/expert26111/DockerSwarm#-8-technical-implementation)
+9. [Sources](https://github.com/expert26111/DockerSwarm#9-sources)
  
 ### **1. Abstract**
 A system is bound to experience an outage, whether by its inability to handle multiple, concurrent requests or even after important updates.
