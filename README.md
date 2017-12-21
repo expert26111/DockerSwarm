@@ -179,8 +179,8 @@ After the above lines sometimes we had to remove the latest image of certain con
 
 
 ### Sources:
-<sup>1</sup>  [Swarm Feature Highlights - Docker Documentation. *Published Date: unstated*]<a name="source1"></a><br>
-<sup>2</sup>  [Ingress Networking with Docker Swarm - Stack Overflow. *Published Date: Feb 28, 2017*]<a name="source2"></a><br>
-<sup>3</sup>  [Applying rolling updates - Docker Documentation. *Published Date: unstated*]<a name="source3"></a><br>
-<sup>4</sup>  [Docker Swarm Tutorial - Toptal.com. *Published Date: unstated*]<a name="source4"></a><br>
-<sup>5</sup> [Docker Swarm Alternatives. *Published Date: July 7, 2017*]<a name="source5"></a><br>
+<sup>1</sup>  [Swarm Feature Highlights - Docker Documentation. *Published Date: unstated*](https://docs.docker.com/engine/swarm/#feature-highlights)<a name="source1"></a><br>
+<sup>2</sup>  [Ingress Networking with Docker Swarm - Stack Overflow. *Published Date: Feb 28, 2017*](https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode)<a name="source2"></a><br>
+<sup>3</sup>  [Applying rolling updates - Docker Documentation. *Published Date: unstated*](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)<a name="source3"></a><br>
+<sup>4</sup>  [Docker Swarm Tutorial - Toptal.com. *Published Date: unstated*](https://www.toptal.com/devops/software-deployment-docker-swarm-tutorial)<a name="source4"></a><br>
+<sup>5</sup> [Docker Swarm Alternatives. *Published Date: July 7, 2017*](https://www.sdxcentral.com/articles/news/kubernetes-swarm-and-mesos-central-in-container-orchestration-space/2017/07/)<a name="source5"></a><br>
