@@ -13,8 +13,19 @@
   <img src="http://everett-toews.github.io/effective-docker-swarm/slides/img/swarmnado.gif" alt="Docker Swarm"/>
 </p>
 
+## Table of Contents
+
+1. [Abstract](https://github.com/expert26111/DockerSwarm#abstract)
+2. [Problem Statement](https://github.com/expert26111/DockerSwarm#problem-statement)
+3. [Docker Swarms](https://github.com/expert26111/DockerSwarm#docker-swarms)
+4. [How Docker Swarms helped us](https://github.com/expert26111/DockerSwarm#how-docker-swarms-helped-us)
+5. [Previous Works](https://github.com/expert26111/DockerSwarm#previous-works5)
+6. [Future Works](https://github.com/expert26111/DockerSwarm#future-works)
+7. [Conclusion](https://github.com/expert26111/DockerSwarm#conclusion)
+8. [Technical Implementation](https://github.com/expert26111/DockerSwarm#-technical-implementation)
+9. [Sources](https://github.com/expert26111/DockerSwarm#sources)
  
-### **Abstract**
+### **1. Abstract**
 A system is bound to experience an outage, whether by its inability to handle multiple, concurrent requests or even after important updates.
 
 Companies cannot afford to have their system down and inaccessible.
@@ -23,11 +34,11 @@ Docker Swarm allows to create multiple replicas of a primary instance of a syste
 
 This implementation brings in scalability and automatic load balancing by nature, resulting in not only continuously alive system but also with increase in security and a better overall deployment approach.
  
-### **Problem Statement**
+### **2. Problem Statement**
 Nowadays, every system, no matter how big it is, sooner or later reaches the point to be deployed, making it accessible from everywhere. There are a few in a bunch whose application fulfills the people’s requirements and goes viral, leading to it getting requests by millions of concurrent users. Many times, developers are not well-prepared to handle this amount of traffic which results to the hosted system to die down, until properly configured to scale. However, this problem can persist with large corporations as well, and this is not something they can afford to keep facing. Consistent failure of a system leads to customers searching for other solutions.
  
  
-### **Docker Swarms**
+### **3. Docker Swarms**
 To battle that very problem, Docker Swarms was introduced on mid-2016 with Docker version `1.12.0`. Yes, there are other alternatives like Kubernetes and Marathon on Apache Mesos but Docker Swarms has relatively easier implementation and if already working with containers, it requires barely any changes in the already set up configuration file, if any.
 
 
@@ -54,7 +65,7 @@ The following are the complete list of features that comes with Docker Swarm.<su
 - Secure by default
 - Rolling updates
 
-### How Docker Swarms Helped us
+### **4. How Docker Swarms Helped us**
 
 Whenever we worked with docker containers, on every update of the system or crash we had to manually run the following commands (depending upon if we wanted to tweak the system):
 
@@ -87,7 +98,7 @@ The beginning of the graph is empty as the system was down due to overload.
 
 
 
-### Previous Works<sup>*[*[5]*](#source5)*</sup>
+### **5. Previous Works**<sup>[[5]](#source5)</sup>
 As stated earlier, there are alternatives to implementation of container orchestration. Kubernetes and Marathon on Apache Mesos are the most actively used alongside Docker Swarms.
 
 **Kubernetes**
@@ -102,13 +113,13 @@ This also is targeted towards mostly large scaled companies, backed by Microsoft
 
 Docker Swarms is another big player in the game and this is targeted towards small to medium sized enterprises. It is lacking the market share of Kubernetes although it has strong enterprise support. It is also the simplest implementation and since many developers are familiar with Docker containers, Swarms is the natural way to evolve into.
 
-### Future Works
+### **6. Future Works**
 
 We have and will be implementing Docker Swarms with our future projects with special regards to networking, load-balancing and scaling. Our current project relating to Blockchain requires a peer-to-peer networking will be completely dependent upon docker swarms. 
 
 We might also look into its alternatives but that has not been decided as of yet.
 
-### Conclusion
+### **7. Conclusion**
  
 So up until now, a conclusion can be made that docker-swarms is easy to manage with docker CLI, no need of additional software to create or manage a swarm. Ingress default network takes care of the load balancing. The option for rolling updates helps one update tasks images on all nodes where service is running.  The connection between different nodes is secure. Scaling is another option where docker-swarms shines, easy to implement with docker cli.
 
@@ -118,7 +129,7 @@ So one can see that using docker-swarms is easy to use and can helps not only wi
 
 
 
-### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/1000px-Octicons-terminal.svg.png" width="20" height="20" /> Technical Implementation
+### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/1000px-Octicons-terminal.svg.png" width="20" height="20" /> **8. Technical Implementation**
 
 If one want to be more orientated and get general help, can always start with the execution of `docker swarm --help`.
 
@@ -201,7 +212,7 @@ What about when one  of the worker node crashes? Then docker swarm takes care of
 ----------
 
 
-### Sources:
+### **9. Sources:**
 <sup>1</sup>  [Swarm Feature Highlights - Docker Documentation. *Published Date: unstated*](https://docs.docker.com/engine/swarm/#feature-highlights)<a name="source1"></a><br>
 <sup>2</sup>  [Ingress Networking with Docker Swarm - Stack Overflow. *Published Date: Feb 28, 2017*](https://stackoverflow.com/questions/42510944/how-is-load-balancing-done-in-docker-swarm-mode)<a name="source2"></a><br>
 <sup>3</sup>  [Applying rolling updates - Docker Documentation. *Published Date: unstated*](https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/)<a name="source3"></a><br>
